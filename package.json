@@ -1,7 +1,7 @@
 {
-  "name": "jira-dashboard-gadget-custom-ui",
+  "name": "issue-formula",
   "version": "1.0.0-alpha",
-  "description": "Jira dashboard gadget.",
+  "description": "Jira dashboard gadget 'Issue Formula'",
   "author": "Mark <mark@remarkablemark.org>",
   "main": "index.js",
   "scripts": {

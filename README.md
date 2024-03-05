@@ -1,6 +1,6 @@
-# Jira Dashboard Gadget
+# Issue Formula
 
-This project contains a Forge app written in JavaScript that displays `Hello World!` in a [Jira dashboard gadget](https://developer.atlassian.com/platform/forge/manifest-reference/modules/jira-dashboard-gadget/).
+This project contains a Forge app written in JavaScript that calculates issue formula in a [Jira dashboard gadget](https://developer.atlassian.com/platform/forge/manifest-reference/modules/jira-dashboard-gadget/).
 
 See [documentation and tutorials](https://developer.atlassian.com/platform/forge) explaining Forge.
 
@@ -13,8 +13,8 @@ See [documentation and tutorials](https://developer.atlassian.com/platform/forge
 Clone the repository:
 
 ```sh
-git clone https://github.com/remarkablemark/jira-dashboard-gadget.git
-cd jira-dashboard-gadget
+git clone https://github.com/remarkablemark/jira-dashboard-gadget-issue-formula.git
+cd jira-dashboard-gadget-issue-formula
 ```
 
 Install the dependecies:
