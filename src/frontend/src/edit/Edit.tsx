@@ -14,7 +14,11 @@ export default function Edit(props: Props) {
     <Form<FormValues> onSubmit={(formValues) => props.view.submit(formValues)}>
       {({ formProps, submitting }) => (
         <form {...formProps}>
-          <Field name="name" label="Name" defaultValue={props.formValues.name}>
+          <Field
+            name="label"
+            label="Label"
+            defaultValue={props.formValues.label}
+          >
             {({ fieldProps }) => <TextField {...fieldProps} />}
           </Field>
 

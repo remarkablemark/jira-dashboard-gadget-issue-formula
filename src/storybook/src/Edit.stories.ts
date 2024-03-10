@@ -15,7 +15,7 @@ const meta: Meta<typeof FrontendEdit> = {
   },
   args: {
     formValues: {
-      name: '',
+      label: '',
       jql: '',
     },
     view: {
@@ -29,4 +29,14 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Edit: Story = {};
+export const EditUnfilled: Story = {};
+
+export const EditFilled: Story = {
+  args: {
+    formValues: {
+      label:
+        'What issues are unassigned and have not been updated in the last day?',
+      jql: 'assignee is EMPTY and created < -1d',
+    },
+  },
+};

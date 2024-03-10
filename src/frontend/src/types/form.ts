@@ -1,4 +1,4 @@
 export interface FormValues {
-  name: string;
+  label: string;
   jql: string;
 }

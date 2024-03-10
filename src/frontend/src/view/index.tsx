@@ -25,7 +25,7 @@ export default function ViewContext() {
 function transform(formValues: FormValues, jiraResponse: { total: number }) {
   return [
     {
-      label: formValues.name,
+      label: formValues.label,
       value: jiraResponse.total.toFixed(0),
     },
   ];
