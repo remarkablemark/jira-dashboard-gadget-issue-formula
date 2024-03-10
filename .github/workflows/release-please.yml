@@ -35,24 +35,17 @@ jobs:
       - name: Install dependencies
         run: npm ci --prefer-offline
 
-      - name: Disable Forge telemetry
-        run: npx forge settings set usage-analytics false
-
-      - name: Install Forge dependencies
-        run: sudo apt-get install -y gnome-keyring
-
-      - name: Login to Atlassian
-        run: >
-          npx forge login
-          --email ${{ secrets.FORGE_EMAIL }}
-          --token ${{ secrets.FORGE_API_TOKEN }}
-          --non-interactive
-
       - name: Build app
         run: npm run build
+
+      - name: Disable Forge telemetry
+        run: npx forge settings set usage-analytics false
 
       - name: Deploy app
         run: >
           npx forge deploy
           --environment production
           --non-interactive
+        env:
+          FORGE_API_TOKEN: ${{ secrets.FORGE_API_TOKEN }}
+          FORGE_EMAIL: ${{ secrets.FORGE_EMAIL }}
