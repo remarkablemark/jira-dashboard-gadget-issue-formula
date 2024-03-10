@@ -1,13 +1,24 @@
-import type { Payload } from '../types';
+import { Grid } from '@atlaskit/primitives';
+
+import Formula from './Formula';
 
 interface Props {
-  data: Payload;
+  data: {
+    label: string;
+    value: string;
+  }[];
 }
 
 export default function View(props: Props) {
   return (
-    <pre>
-      <code>{JSON.stringify(props.data, null, 4)}</code>
-    </pre>
+    <Grid
+      rowGap="space.050"
+      columnGap="space.050"
+      templateColumns="1fr 1fr 1fr"
+    >
+      {props.data.map(({ label, value }, index) => (
+        <Formula label={label} value={value} key={index} />
+      ))}
+    </Grid>
   );
 }

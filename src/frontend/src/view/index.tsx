@@ -2,6 +2,7 @@ import Spinner from '@atlaskit/spinner';
 import { useMemo } from 'react';
 
 import { useFormValues, useJiraSearch } from '../hooks';
+import { FormValues } from '../types';
 import View from './View';
 
 export default function ViewContext() {
@@ -12,11 +13,20 @@ export default function ViewContext() {
       maxResults: 0,
     };
   }, [formValues]);
-  const data = useJiraSearch(payload);
+  const jiraResponse = useJiraSearch(payload);
 
-  if (!data) {
+  if (!formValues || !jiraResponse) {
     return <Spinner label="Loading" />;
   }
 
-  return <View data={data} />;
+  return <View data={transform(formValues, jiraResponse)} />;
+}
+
+function transform(formValues: FormValues, jiraResponse: { total: number }) {
+  return [
+    {
+      label: formValues.name,
+      value: jiraResponse.total.toFixed(0),
+    },
+  ];
 }

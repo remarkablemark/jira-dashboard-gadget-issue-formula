@@ -4,8 +4,15 @@ import { useEffect, useState } from 'react';
 import { log } from '../helpers';
 import type { Payload } from '../types';
 
+interface Response {
+  startAt: number;
+  maxResults: number;
+  total: number;
+  issues: object[];
+}
+
 export function useJiraSearch(payload: Payload) {
-  const [data, setData] = useState<Payload | undefined>();
+  const [data, setData] = useState<Response | undefined>();
 
   useEffect(() => {
     if (data || !payload.jql) {

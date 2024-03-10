@@ -19,9 +19,27 @@ type Story = StoryObj<typeof meta>;
 
 export const View: Story = {
   args: {
-    data: {
-      name: 'name',
-      jql: 'description IS EMPTY',
-    },
+    data: [
+      {
+        label: 'One Hundredth',
+        value: '0.01',
+      },
+      {
+        label: 'One Tenth',
+        value: '0.1',
+      },
+      {
+        label: 'Zero',
+        value: '0',
+      },
+      {
+        label: 'One Hundred',
+        value: '100',
+      },
+      {
+        label: 'One Thousand',
+        value: '1000',
+      },
+    ],
   },
 };
