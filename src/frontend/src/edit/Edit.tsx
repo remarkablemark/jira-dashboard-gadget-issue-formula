@@ -33,7 +33,7 @@ export default function Edit(props: Props) {
               Save
             </Button>
 
-            <Button appearance="subtle" onClick={props.view.close}>
+            <Button onClick={() => props.view.submit(props.formValues)}>
               Cancel
             </Button>
           </ButtonGroup>
