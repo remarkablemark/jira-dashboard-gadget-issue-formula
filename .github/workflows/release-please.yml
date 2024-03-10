@@ -39,10 +39,17 @@ jobs:
         run: npx forge settings set usage-analytics false
 
       - name: Login to Atlassian
-        run: npx forge login --email ${{ secrets.FORGE_EMAIL }} --token ${{ secrets.FORGE_API_TOKEN }}
+        run: >
+          npx forge login
+          --email ${{ secrets.FORGE_EMAIL }}
+          --token ${{ secrets.FORGE_API_TOKEN }}
+          --non-interactive
 
       - name: Build app
         run: npm run build
 
       - name: Deploy app
-        run: npx forge deploy --environment production
+        run: >
+          npx forge deploy
+          --environment production
+          --non-interactive
