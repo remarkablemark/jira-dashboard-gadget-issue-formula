@@ -2,7 +2,7 @@
   "name": "frontend",
   "private": true,
   "scripts": {
-    "build": "vite build",
+    "build": "scripts/generate-env.js && vite build",
     "clean": "rm -rf dist",
     "lint": "npm run clean && eslint .",
     "lint:fix": "npm run lint -- --fix",
