@@ -23,7 +23,10 @@ interface Props {
 
 export default function Formula(props: Props) {
   return (
-    <Box backgroundColor="color.background.neutral" xcss={containerStyles}>
+    <Box
+      backgroundColor="color.background.neutral.hovered"
+      xcss={containerStyles}
+    >
       <Box>
         <Heading level="h900" as="h1">
           <Box as="span" xcss={valueStyles}>
