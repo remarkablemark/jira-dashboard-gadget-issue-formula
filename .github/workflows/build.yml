@@ -18,6 +18,9 @@ jobs:
       - name: Install dependencies
         run: npm ci --prefer-offline
 
+      - name: Disable Forge telemetry
+        run: npx forge settings set usage-analytics false
+
       - name: Lint codebase
         run: npm run lint
 

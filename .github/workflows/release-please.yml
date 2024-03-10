@@ -35,6 +35,9 @@ jobs:
       - name: Install dependencies
         run: npm ci --prefer-offline
 
+      - name: Disable Forge telemetry
+        run: npx forge settings set usage-analytics false
+
       - name: Login to Atlassian
         run: npx forge login --email ${{ secrets.FORGE_EMAIL }} --token ${{ secrets.FORGE_API_TOKEN }}
 
