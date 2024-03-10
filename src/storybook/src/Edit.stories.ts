@@ -6,7 +6,7 @@ import { fn } from '@storybook/test';
 import FrontendEdit from '../../frontend/src/edit/Edit';
 import type { View } from '../../frontend/src/types';
 
-const meta = {
+const meta: Meta<typeof FrontendEdit> = {
   title: 'Edit',
   component: FrontendEdit,
   tags: ['autodocs'],
@@ -23,7 +23,7 @@ const meta = {
       submit: fn(),
     } as unknown as View,
   },
-} satisfies Meta<typeof FrontendEdit>;
+};
 
 export default meta;
 

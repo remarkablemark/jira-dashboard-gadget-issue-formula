@@ -4,14 +4,14 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import FrontendView from '../../frontend/src/view/View';
 
-const meta = {
+const meta: Meta<typeof FrontendView> = {
   title: 'View',
   component: FrontendView,
   tags: ['autodocs'],
   parameters: {
     layout: 'fullscreen',
   },
-} satisfies Meta<typeof FrontendView>;
+};
 
 export default meta;
 
