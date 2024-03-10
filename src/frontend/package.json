@@ -17,6 +17,7 @@
     "@atlaskit/icon": "22.1.1",
     "@atlaskit/primitives": "4.0.0",
     "@atlaskit/spinner": "16.0.1",
+    "@atlaskit/textarea": "5.0.1",
     "@atlaskit/textfield": "6.0.1",
     "@forge/bridge": "3.3.0",
     "react": "16",
