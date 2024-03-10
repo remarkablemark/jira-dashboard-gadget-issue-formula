@@ -1,8 +1,6 @@
 # Issue Formula
 
-This project contains a Forge app written in JavaScript that calculates issue formula in a [Jira dashboard gadget](https://developer.atlassian.com/platform/forge/manifest-reference/modules/jira-dashboard-gadget/).
-
-See [documentation and tutorials](https://developer.atlassian.com/platform/forge) explaining Forge.
+<kbd>Issue Formula</kbd> is a [Jira dashboard gadget](https://developer.atlassian.com/platform/forge/manifest-reference/modules/jira-dashboard-gadget/) that calculates mathematical formulas using issue data.
 
 ## Prerequisites
 
@@ -31,7 +29,7 @@ npm run login
 
 Modify the frontend app by editing the `src/frontend/src/index.tsx` file.
 
-Modify the backend app by editing the `src/resolvers/index.js` file to define resolver functions. See [Forge resolvers](https://developer.atlassian.com/platform/forge/runtime-reference/custom-ui-resolver/) for documentation on resolver functions.
+Modify the backend app by editing the `src/backend/index.js` file to define resolver functions. See [Forge resolvers](https://developer.atlassian.com/platform/forge/runtime-reference/custom-ui-resolver/) for documentation on resolver functions.
 
 Build, deploy, and install your app in an Atlassian site:
 
