@@ -18,8 +18,11 @@ jobs:
       - name: Install dependencies
         run: npm ci --prefer-offline
 
-      - name: Enable Forge telemetry
-        run: npx forge settings set usage-analytics true
+      - name: Disable Forge telemetry
+        run: npx forge settings set usage-analytics false
+
+      - name: Install Forge dependencies
+        run: sudo apt-get install -y gnome-keyring
 
       - name: Lint codebase
         run: npm run lint
