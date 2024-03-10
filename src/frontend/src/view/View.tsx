@@ -1,9 +1,13 @@
-import type { FormValues } from '../types';
+import type { Payload } from '../types';
 
 interface Props {
-  formValues: FormValues;
+  data: Payload;
 }
 
 export default function View(props: Props) {
-  return <div>{JSON.stringify(props.formValues)}</div>;
+  return (
+    <pre>
+      <code>{JSON.stringify(props.data, null, 4)}</code>
+    </pre>
+  );
 }

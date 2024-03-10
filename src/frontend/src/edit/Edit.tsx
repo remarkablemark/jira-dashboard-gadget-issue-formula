@@ -11,18 +11,14 @@ interface Props {
 
 export default function Edit(props: Props) {
   return (
-    <Form<FormValues> onSubmit={props.view.submit}>
+    <Form<FormValues> onSubmit={(formValues) => props.view.submit(formValues)}>
       {({ formProps, submitting }) => (
         <form {...formProps}>
           <Field name="name" label="Name" defaultValue={props.formValues.name}>
             {({ fieldProps }) => <TextField {...fieldProps} />}
           </Field>
 
-          <Field
-            name="description"
-            label="Description"
-            defaultValue={props.formValues.description}
-          >
+          <Field name="jql" label="JQL" defaultValue={props.formValues.jql}>
             {({ fieldProps }) => <TextField {...fieldProps} />}
           </Field>
 

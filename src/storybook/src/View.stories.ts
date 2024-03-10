@@ -19,9 +19,9 @@ type Story = StoryObj<typeof meta>;
 
 export const View: Story = {
   args: {
-    formValues: {
+    data: {
       name: 'name',
-      description: 'description',
+      jql: 'description IS EMPTY',
     },
   },
 };

@@ -16,7 +16,7 @@ const meta: Meta<typeof FrontendEdit> = {
   args: {
     formValues: {
       name: '',
-      description: '',
+      jql: '',
     },
     view: {
       close: fn(),

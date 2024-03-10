@@ -6,13 +6,14 @@
   "scripts": {
     "build": "npm run build --workspace=frontend",
     "clean": "npm run clean --workspace=frontend",
-    "deploy": "npm run build && forge deploy && forge install",
+    "deploy": "npm run build && forge deploy && forge install --upgrade",
     "lint": "npm run clean && eslint . && npm run lint:forge",
     "lint:fix": "npm run lint -- --fix",
     "lint:forge": "forge lint",
     "lint:tsc": "npm run lint:tsc --workspace=frontend",
     "login": "forge login",
-    "prepare": "husky"
+    "prepare": "husky",
+    "storybook": "npm run storybook --prefix=src/storybook"
   },
   "devDependencies": {
     "@commitlint/cli": "19.0.3",

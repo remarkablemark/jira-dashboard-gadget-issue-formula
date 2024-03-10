@@ -19,5 +19,7 @@ permissions:
   content:
     styles:
       - unsafe-inline
+  scopes:
+    - 'read:jira-work'
 app:
   id: ari:cloud:ecosystem::app/b61c9830-6619-4c99-9e7d-3cc0cdbf6423

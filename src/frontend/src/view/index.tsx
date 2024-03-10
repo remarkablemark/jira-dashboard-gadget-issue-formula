@@ -1,14 +1,22 @@
 import Spinner from '@atlaskit/spinner';
+import { useMemo } from 'react';
 
-import { useForgeContext } from '../hooks';
+import { useFormValues, useJiraSearch } from '../hooks';
 import View from './View';
 
 export default function ViewContext() {
-  const context = useForgeContext();
+  const formValues = useFormValues();
+  const payload = useMemo(() => {
+    return {
+      jql: formValues?.jql,
+      maxResults: 0,
+    };
+  }, [formValues]);
+  const data = useJiraSearch(payload);
 
-  if (!context) {
+  if (!data) {
     return <Spinner label="Loading" />;
   }
 
-  return <View formValues={context.extension.gadgetConfiguration} />;
+  return <View data={data} />;
 }
