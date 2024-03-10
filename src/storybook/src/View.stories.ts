@@ -1,3 +1,5 @@
+import '@atlaskit/css-reset';
+
 import type { Meta, StoryObj } from '@storybook/react';
 
 import FrontendView from '../../frontend/src/view/View';
