@@ -38,6 +38,9 @@ jobs:
       - name: Disable Forge telemetry
         run: npx forge settings set usage-analytics false
 
+      - name: Install Forge dependencies
+        run: sudo apt-get install -y gnome-keyring
+
       - name: Login to Atlassian
         run: >
           npx forge login

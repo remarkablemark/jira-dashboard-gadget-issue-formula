@@ -24,6 +24,13 @@ jobs:
       - name: Install Forge dependencies
         run: sudo apt-get install -y gnome-keyring
 
+      - name: Login to Atlassian
+        run: >
+          npx forge login
+          --email ${{ secrets.FORGE_EMAIL }}
+          --token ${{ secrets.FORGE_API_TOKEN }}
+          --non-interactive
+
       - name: Lint codebase
         run: npm run lint
 
