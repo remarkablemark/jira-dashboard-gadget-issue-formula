@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://raw.githubusercontent.com/remarkablemark/jira-dashboard-gadget-issue-formula/master/icon.svg" alt="Issue Formula" width="65">
+</p>
+
 # Issue Formula
 
 <kbd>Issue Formula</kbd> is a [Jira dashboard gadget](https://developer.atlassian.com/platform/forge/manifest-reference/modules/jira-dashboard-gadget/) that calculates mathematical formulas using issue data.
