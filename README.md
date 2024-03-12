@@ -6,6 +6,13 @@
 
 <kbd>Issue Formula</kbd> is a [Jira dashboard gadget](https://developer.atlassian.com/platform/forge/manifest-reference/modules/jira-dashboard-gadget/) that calculates mathematical formulas using issue data.
 
+## Stack
+
+- [Forge](https://developer.atlassian.com/cloud/confluence/forge/)
+- [Atlaskit](https://atlassian.design/components)
+- [React](https://react.dev/)
+- [Vite](https://vitejs.dev/)
+
 ## Prerequisites
 
 [Set up Forge](https://developer.atlassian.com/platform/forge/set-up-forge/).
@@ -31,7 +38,11 @@ Log in to your Atlassian account:
 npm run login
 ```
 
-Modify the frontend app by editing the `src/frontend/src/index.tsx` file.
+Modify the frontend app by editing the `src/frontend/src/index.tsx` file. View your changes with [Storybook](https://storybook.js.org/):
+
+```sh
+npm run storybook
+```
 
 Modify the backend app by editing the `src/backend/index.js` file to define resolver functions. See [Forge resolvers](https://developer.atlassian.com/platform/forge/runtime-reference/custom-ui-resolver/) for documentation on resolver functions.
 
