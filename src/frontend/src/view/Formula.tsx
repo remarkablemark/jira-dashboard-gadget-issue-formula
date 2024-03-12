@@ -27,8 +27,8 @@ export default function Formula(props: Props) {
       backgroundColor="color.background.neutral.hovered"
       xcss={containerStyles}
     >
-      <Box>
-        <Heading level="h900" as="h1">
+      <div>
+        <Heading as="h1" variant="xxlarge">
           <Box as="span" xcss={valueStyles}>
             {props.value}
           </Box>
@@ -36,10 +36,10 @@ export default function Formula(props: Props) {
 
         <br />
 
-        <Heading level="h600" as="h2">
+        <Heading as="h2" variant="medium">
           {props.label}
         </Heading>
-      </Box>
+      </div>
     </Box>
   );
 }
