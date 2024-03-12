@@ -1,32 +1,59 @@
 import Spinner from '@atlaskit/spinner';
-import { useMemo } from 'react';
+import { Parser } from 'expr-eval';
 
-import { useFormValues, useJiraSearch } from '../hooks';
-import { FormValues } from '../types';
+import { log } from '../helpers';
+import { useFormValues, useGetFormValues, useJiraSearch } from '../hooks';
+import { FormValues, Issue } from '../types';
 import View from './View';
 
 export default function ViewContext() {
-  const formValues = useFormValues();
-  const payload = useMemo(() => {
-    return {
-      jql: formValues?.jql,
-      maxResults: 0,
-    };
-  }, [formValues]);
-  const jiraResponse = useJiraSearch(payload);
+  const gadgetConfiguration = useFormValues();
+  const formValues = useGetFormValues();
+  const jiraSearch = useJiraSearch(formValues);
 
-  if (!formValues || !jiraResponse) {
+  if (gadgetConfiguration.isLoading || jiraSearch.isLoading) {
     return <Spinner label="Loading" />;
   }
 
-  return <View data={transform(formValues, jiraResponse)} />;
+  const data = transform(formValues, jiraSearch.issues);
+  return <View data={data} />;
 }
 
-function transform(formValues: FormValues, jiraResponse: { total: number }) {
-  return [
-    {
-      label: formValues.label,
-      value: jiraResponse.total.toFixed(0),
+function transform(formValues: FormValues, issues: Issue[]) {
+  const variables = getVariables(formValues, issues);
+
+  return formValues.label.map((label, index) => {
+    let value = '';
+    const formula = formValues.formula[index];
+    const decimal = Number(formValues.decimal[index]);
+
+    try {
+      value = Parser.evaluate(formula, variables).toFixed(decimal);
+    } catch (error) {
+      log.error('expr-eval:', error);
+    }
+
+    return {
+      label,
+      value,
+    };
+  });
+}
+
+function getVariables(formValues: FormValues, issues: Issue[]) {
+  return formValues.variable.reduce(
+    (accumulator: Record<string, number>, variable, index) => {
+      let value = NaN;
+
+      switch (formValues.function[index].value) {
+        case 'COUNT':
+          value = issues[index].total;
+          break;
+      }
+
+      accumulator[variable] = value;
+      return accumulator;
     },
-  ];
+    {},
+  );
 }

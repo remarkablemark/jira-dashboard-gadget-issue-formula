@@ -1,24 +1,26 @@
 import { Field } from '@atlaskit/form';
-import { Box, xcss } from '@atlaskit/primitives';
-import AtlaskitTextArea from '@atlaskit/textarea';
+import { Box } from '@atlaskit/primitives';
+import AtlaskitTextArea, {
+  type TextAreaProps as AtlaskitTextAreaProps,
+} from '@atlaskit/textarea';
+import type { CSSProperties } from 'react';
 
-const formulaStyles = xcss({
-  flexGrow: 1,
-});
-
-interface Props {
+export interface TextAreaProps extends AtlaskitTextAreaProps {
   name: string;
   label?: string | boolean;
+  style?: CSSProperties;
 }
 
-export function TextArea(props: Props) {
+export function TextArea(props: TextAreaProps) {
+  const { name, label, style, ...restProps } = props;
+
   return (
-    <Box xcss={formulaStyles}>
-      <Field<string, HTMLTextAreaElement> name={props.name} label={props.label}>
+    <Box style={style}>
+      <Field<string, HTMLTextAreaElement> name={name} label={label}>
         {({ fieldProps }) => (
           <AtlaskitTextArea
             {...fieldProps}
-            resize="auto"
+            {...restProps}
             isCompact
             isRequired
           />

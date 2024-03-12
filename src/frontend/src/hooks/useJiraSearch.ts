@@ -2,34 +2,44 @@ import { requestJira } from '@forge/bridge';
 import { useEffect, useState } from 'react';
 
 import { log } from '../helpers';
-import type { Payload } from '../types';
+import { FormValues, Issue } from '../types';
 
-interface Response {
-  startAt: number;
-  maxResults: number;
-  total: number;
-  issues: object[];
-}
-
-export function useJiraSearch(payload: Payload) {
-  const [data, setData] = useState<Response | undefined>();
+export function useJiraSearch(formValues: FormValues) {
+  const [hasLoaded, setHasLoaded] = useState(false);
+  const [issues, setIssues] = useState<Issue[]>([]);
 
   useEffect(() => {
-    if (data || !payload.jql) {
+    if (hasLoaded || !formValues.jql.length) {
       return;
     }
 
-    requestJira('/rest/api/3/search', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(payload),
-    })
-      .then((response) => response.json())
-      .then(setData)
-      .catch(log.error);
-  }, [data, payload]);
+    const requests = formValues.jql.map((jql, index) =>
+      requestJira('/rest/api/3/search', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          jql,
+          maxResults:
+            formValues.function[index].value === 'COUNT' ? 0 : undefined,
+        }),
+      })
+        .then((response) => response.json())
+        .catch(log.error),
+    );
 
-  return data;
+    Promise.all(requests)
+      .then((issues) => {
+        setIssues(issues);
+      })
+      .catch(log.error)
+      .finally(() => setHasLoaded(true));
+  }, [formValues, hasLoaded, issues]);
+
+  return {
+    isLoading: !hasLoaded,
+    issues,
+  };
 }

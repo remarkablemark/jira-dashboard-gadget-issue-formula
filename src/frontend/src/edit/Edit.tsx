@@ -1,42 +1,51 @@
-import Button, { ButtonGroup } from '@atlaskit/button';
-import Form, { Field } from '@atlaskit/form';
-import TextField from '@atlaskit/textfield';
+import ButtonGroup from '@atlaskit/button/button-group';
+import LoadingButton from '@atlaskit/button/loading-button';
+import Button from '@atlaskit/button/new';
+import Form, { FormFooter } from '@atlaskit/form';
+import { view } from '@forge/bridge';
 
-import type { FormValues, View } from '../types';
+import { log } from '../helpers';
+import { useFormValues, useGetFormValues } from '../hooks';
+import type { FormValues } from '../types';
+import Formulas from './formulas';
+import Variables from './variables';
 
-interface Props {
-  formValues: FormValues;
-  view: View;
-}
+export default function Edit() {
+  const { formValues: oldFormValues } = useFormValues();
+  const formValues = useGetFormValues();
 
-export default function Edit(props: Props) {
   return (
-    <Form<FormValues> onSubmit={(formValues) => props.view.submit(formValues)}>
+    <Form<FormValues>
+      onSubmit={() => {
+        import.meta.env.DEV && log.info('submit:', formValues);
+        view.submit(formValues);
+      }}
+    >
       {({ formProps, submitting }) => (
         <form {...formProps}>
-          <Field
-            name="label"
-            label="Label"
-            defaultValue={props.formValues.label}
-          >
-            {({ fieldProps }) => <TextField {...fieldProps} />}
-          </Field>
+          <Variables />
+          <Formulas />
 
-          <Field name="jql" label="JQL" defaultValue={props.formValues.jql}>
-            {({ fieldProps }) => <TextField {...fieldProps} />}
-          </Field>
+          <FormFooter align="start">
+            <ButtonGroup label="Form submit options">
+              <LoadingButton
+                type="submit"
+                appearance="primary"
+                isLoading={submitting}
+              >
+                Save
+              </LoadingButton>
 
-          <br />
-
-          <ButtonGroup>
-            <Button appearance="primary" type="submit" isDisabled={submitting}>
-              Save
-            </Button>
-
-            <Button onClick={() => props.view.submit(props.formValues)}>
-              Cancel
-            </Button>
-          </ButtonGroup>
+              <Button
+                onClick={() => {
+                  import.meta.env.DEV && log.info('cancel');
+                  formValues && view.submit(oldFormValues);
+                }}
+              >
+                Cancel
+              </Button>
+            </ButtonGroup>
+          </FormFooter>
         </form>
       )}
     </Form>

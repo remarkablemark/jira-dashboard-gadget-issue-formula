@@ -2,11 +2,11 @@ import '@atlaskit/css-reset';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
-import FrontendView from '../../frontend/src/view/View';
+import View from '../../frontend/src/view/View';
 
-const meta: Meta<typeof FrontendView> = {
+const meta: Meta<typeof View> = {
   title: 'View',
-  component: FrontendView,
+  component: View,
   tags: ['autodocs'],
   parameters: {
     layout: 'fullscreen',
@@ -17,7 +17,7 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const View: Story = {
+export const ViewDefault: Story = {
   args: {
     data: [
       {

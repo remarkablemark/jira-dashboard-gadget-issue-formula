@@ -7,9 +7,11 @@ interface Props extends Omit<IconButtonProps, 'icon'> {
 }
 
 export function DeleteButton(props: Props) {
+  const { offsetLabel, ...restProps } = props;
+
   return (
-    <Box style={{ marginTop: props.offsetLabel ? 34 : 12 }}>
-      <IconButton appearance="subtle" {...props} icon={CrossCircleIcon} />
+    <Box style={{ marginTop: offsetLabel ? 34 : 12 }}>
+      <IconButton appearance="subtle" {...restProps} icon={CrossCircleIcon} />
     </Box>
   );
 }

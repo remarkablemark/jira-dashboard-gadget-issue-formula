@@ -1,29 +1,37 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
-import { decode } from '../helpers';
+import { decode, log } from '../helpers';
+import { useFormValuesStore } from '../store';
 import type { FormValues } from '../types';
 import { useForgeContext } from './useForgeContext';
 
-export function useFormValues() {
+interface Result {
+  formValues?: FormValues;
+  isLoading: boolean;
+}
+
+export function useFormValues(): Result {
   const context = useForgeContext();
-  const [formValues, setFormValues] = useState<FormValues | undefined>();
+  const { setFormValues } = useFormValuesStore();
+  const formValues: FormValues = context?.extension.gadgetConfiguration;
 
   useEffect(() => {
-    if (!context) {
+    if (!formValues) {
       return;
     }
 
-    const data = context.extension.gadgetConfiguration;
-    for (const key in data) {
-      if (typeof data[key] === 'string') {
-        data[key] = decode(data[key]);
-      }
-    }
+    (['formula', 'jql', 'label'] as const).forEach((key) => {
+      formValues[key].forEach((value, index) => {
+        formValues[key][index] = decode(value);
+      });
+    });
 
-    if (JSON.stringify(data) !== JSON.stringify(formValues)) {
-      setFormValues(data);
-    }
-  }, [context, formValues]);
+    import.meta.env.DEV && log.info('formValues:', formValues);
+    setFormValues(formValues);
+  }, [formValues, setFormValues]);
 
-  return formValues;
+  return {
+    formValues,
+    isLoading: !context,
+  };
 }

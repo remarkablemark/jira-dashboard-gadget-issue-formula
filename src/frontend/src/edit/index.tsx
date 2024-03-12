@@ -1,15 +1,14 @@
 import Spinner from '@atlaskit/spinner';
-import { view } from '@forge/bridge';
 
 import { useFormValues } from '../hooks';
 import Edit from './Edit';
 
 export default function EditContext() {
-  const formValues = useFormValues();
+  const { isLoading } = useFormValues();
 
-  if (!formValues) {
+  if (isLoading) {
     return <Spinner label="Loading" />;
   }
 
-  return <Edit formValues={formValues} view={view} />;
+  return <Edit />;
 }
