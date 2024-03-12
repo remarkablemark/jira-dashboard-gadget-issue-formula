@@ -3,7 +3,7 @@ modules:
     - key: issue-formula-gadget
       title: Issue Formula
       description: 'Jira dashboard gadget "Issue Formula"'
-      thumbnail: https://developer.atlassian.com/platform/forge/images/icons/issue-panel-icon.svg
+      thumbnail: https://raw.githubusercontent.com/remarkablemark/jira-dashboard-gadget-issue-formula/master/icon.svg
       resource: main
       resolver:
         function: resolver
