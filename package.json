@@ -1,6 +1,6 @@
 {
   "name": "issue-formula",
-  "version": "1.0.0-alpha",
+  "version": "1.0.0",
   "description": "Jira dashboard gadget 'Issue Formula'",
   "author": "Mark <mark@remarkablemark.org>",
   "scripts": {
