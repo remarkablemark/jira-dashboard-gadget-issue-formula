@@ -3,12 +3,12 @@ import '@atlaskit/css-reset';
 import type { Meta, StoryObj } from '@storybook/react';
 import { type ReactNode, useEffect } from 'react';
 
-import Edit from '../../frontend/src/edit/Edit';
-import { useFormValuesStore } from '../../frontend/src/hooks';
-import type { FormValues } from '../../frontend/src/types';
+import Edit from '../../../frontend/src/edit/Edit';
+import { useFormValuesStore } from '../../../frontend/src/hooks';
+import type { FormValues } from '../../../frontend/src/types';
 
 const meta: Meta<typeof Edit> = {
-  title: 'Edit',
+  title: 'UI/Edit',
   component: Edit,
   tags: ['autodocs'],
   parameters: {

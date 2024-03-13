@@ -2,10 +2,10 @@ import '@atlaskit/css-reset';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
-import View from '../../frontend/src/view/View';
+import View from '../../../frontend/src/view/View';
 
 const meta: Meta<typeof View> = {
-  title: 'View',
+  title: 'UI/View',
   component: View,
   tags: ['autodocs'],
   parameters: {
