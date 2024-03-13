@@ -34,7 +34,7 @@ function Store(props: Props) {
   return props.children;
 }
 
-export const EditBlank: Story = {
+export const Blank: Story = {
   decorators: [
     (story) => {
       const formValues = {
@@ -50,7 +50,7 @@ export const EditBlank: Story = {
   ],
 };
 
-export const EditFilled: Story = {
+export const Filled: Story = {
   decorators: [
     (story) => {
       const formValues = {
