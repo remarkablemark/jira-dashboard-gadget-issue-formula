@@ -1,6 +1,6 @@
 import { useFormValuesStore } from '../store/formValuesStore';
 
-export function useGetFormValues() {
+export function useFormValues() {
   const formValues = useFormValuesStore();
 
   return {
