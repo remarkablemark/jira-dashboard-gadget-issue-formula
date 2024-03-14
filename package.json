@@ -1,6 +1,6 @@
 {
   "name": "issue-formula",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Calculate mathematical formulas with issue data.",
   "author": "Mark <mark@remarkablemark.org>",
   "scripts": {
