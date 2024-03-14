@@ -2,12 +2,16 @@ import Spinner from '@atlaskit/spinner';
 import { Parser } from 'expr-eval';
 
 import { log } from '../helpers';
-import { useFormValues, useGetFormValues, useJiraSearch } from '../hooks';
+import {
+  useGadgetConfiguration,
+  useGetFormValues,
+  useJiraSearch,
+} from '../hooks';
 import { FormValues, Issue } from '../types';
 import View from './View';
 
 export default function ViewContext() {
-  const gadgetConfiguration = useFormValues();
+  const gadgetConfiguration = useGadgetConfiguration();
   const formValues = useGetFormValues();
 
   if (gadgetConfiguration.isLoading) {

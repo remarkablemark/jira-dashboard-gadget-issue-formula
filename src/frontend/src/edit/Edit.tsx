@@ -5,13 +5,13 @@ import Form, { FormFooter } from '@atlaskit/form';
 import { view } from '@forge/bridge';
 
 import { log } from '../helpers';
-import { useFormValues, useGetFormValues } from '../hooks';
+import { useGadgetConfiguration, useGetFormValues } from '../hooks';
 import type { FormValues } from '../types';
 import Formulas from './formulas';
 import Variables from './variables';
 
 export default function Edit() {
-  const { formValues: oldFormValues } = useFormValues();
+  const { formValues: oldFormValues } = useGadgetConfiguration();
   const formValues = useGetFormValues();
 
   return (

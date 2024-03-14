@@ -10,7 +10,7 @@ interface Result {
   isLoading: boolean;
 }
 
-export function useFormValues(): Result {
+export function useGadgetConfiguration(): Result {
   const context = useForgeContext();
   const { setFormValues } = useFormValuesStore();
   const formValues: FormValues = context?.extension.gadgetConfiguration;
