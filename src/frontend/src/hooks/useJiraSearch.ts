@@ -5,15 +5,13 @@ import { log } from '../helpers';
 import { FormValues, Issue } from '../types';
 
 export function useJiraSearch(formValues: FormValues) {
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [issues, setIssues] = useState<Issue[]>([]);
 
   useEffect(() => {
     if (!formValues.jql.length) {
-      return;
+      return setIsLoading(false);
     }
-
-    setIsLoading(true);
 
     const requests = formValues.jql.map((jql, index) =>
       requestJira('/rest/api/3/search', {
@@ -38,7 +36,8 @@ export function useJiraSearch(formValues: FormValues) {
       })
       .catch(log.error)
       .finally(() => setIsLoading(false));
-  }, [formValues, issues, setIsLoading]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return {
     isLoading,

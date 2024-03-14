@@ -9,9 +9,22 @@ import View from './View';
 export default function ViewContext() {
   const gadgetConfiguration = useFormValues();
   const formValues = useGetFormValues();
+
+  if (gadgetConfiguration.isLoading) {
+    return <Spinner label="Loading" />;
+  }
+
+  if (!formValues.variable.length || !formValues.formula.length) {
+    return null;
+  }
+
+  return <ViewFormValues formValues={formValues} />;
+}
+
+function ViewFormValues({ formValues }: { formValues: FormValues }) {
   const jiraSearch = useJiraSearch(formValues);
 
-  if (gadgetConfiguration.isLoading || jiraSearch.isLoading) {
+  if (jiraSearch.isLoading) {
     return <Spinner label="Loading" />;
   }
 
@@ -44,6 +57,11 @@ function getVariables(formValues: FormValues, issues: Issue[]) {
   return formValues.variable.reduce(
     (accumulator: Record<string, number>, variable, index) => {
       let value = NaN;
+      const issue = issues[index];
+
+      if (!issue) {
+        return accumulator;
+      }
 
       switch (formValues.function[index].value) {
         case 'COUNT':
