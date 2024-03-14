@@ -5,13 +5,15 @@ import { log } from '../helpers';
 import { FormValues, Issue } from '../types';
 
 export function useJiraSearch(formValues: FormValues) {
-  const [hasLoaded, setHasLoaded] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [issues, setIssues] = useState<Issue[]>([]);
 
   useEffect(() => {
-    if (hasLoaded || !formValues.jql.length) {
+    if (!formValues.jql.length) {
       return;
     }
+
+    setIsLoading(true);
 
     const requests = formValues.jql.map((jql, index) =>
       requestJira('/rest/api/3/search', {
@@ -35,11 +37,11 @@ export function useJiraSearch(formValues: FormValues) {
         setIssues(issues);
       })
       .catch(log.error)
-      .finally(() => setHasLoaded(true));
-  }, [formValues, hasLoaded, issues]);
+      .finally(() => setIsLoading(false));
+  }, [formValues, issues, setIsLoading]);
 
   return {
-    isLoading: !hasLoaded,
+    isLoading,
     issues,
   };
 }
