@@ -21,7 +21,7 @@ export function useFormValues(): Result {
     }
 
     (['formula', 'jql', 'label'] as const).forEach((key) => {
-      formValues[key].forEach((value, index) => {
+      formValues[key]?.forEach((value, index) => {
         formValues[key][index] = decode(value);
       });
     });
