@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.2](https://github.com/remarkablemark/jira-dashboard-gadget-issue-formula/compare/v1.0.1...v1.0.2) (2024-03-14)
+
+
+### Bug Fixes
+
+* **frontend:** prevent race condition of jira search in view ([22334ce](https://github.com/remarkablemark/jira-dashboard-gadget-issue-formula/commit/22334ce21669121935f14a6a1f6563603d68b138))
+
 ## [1.0.1](https://github.com/remarkablemark/jira-dashboard-gadget-issue-formula/compare/v1.0.0...v1.0.1) (2024-03-14)
 
 
