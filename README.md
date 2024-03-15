@@ -62,12 +62,6 @@ npx forge tunnel
 - Use the `npx forge install` command when you want to install the app on a new site.
 - Once the app is installed on a site, the site picks up the new app changes you deploy without needing to rerun the install command.
 
-## Resources
-
-- [Manage your apps](https://developer.atlassian.com/platform/forge/manage-your-apps/)
-- [Product bridge APIs](https://developer.atlassian.com/platform/forge/apis-reference/ui-api-bridge/bridge/)
-- [Atlassian design system](https://atlassian.design/components)
-
 ## License
 
 [MIT](LICENSE)
