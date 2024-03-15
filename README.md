@@ -11,13 +11,6 @@
 
 See [wiki](https://github.com/remarkablemark/jira-dashboard-gadget-issue-formula/wiki/).
 
-## Stack
-
-- [Forge](https://developer.atlassian.com/cloud/confluence/forge/)
-- [Atlaskit](https://atlassian.design/components)
-- [React](https://react.dev/)
-- [Vite](https://vitejs.dev/)
-
 ## Prerequisites
 
 [Set up Forge](https://developer.atlassian.com/platform/forge/set-up-forge/).
@@ -74,10 +67,6 @@ npx forge tunnel
 - [Manage your apps](https://developer.atlassian.com/platform/forge/manage-your-apps/)
 - [Product bridge APIs](https://developer.atlassian.com/platform/forge/apis-reference/ui-api-bridge/bridge/)
 - [Atlassian design system](https://atlassian.design/components)
-
-## Prototype
-
-- [StackBlitz](https://stackblitz.com/edit/issue-formula)
 
 ## License
 
