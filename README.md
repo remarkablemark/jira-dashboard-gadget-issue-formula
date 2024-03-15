@@ -4,6 +4,8 @@
 
 # Issue Formula
 
+[![build](https://github.com/remarkablemark/jira-dashboard-gadget-issue-formula/actions/workflows/build.yml/badge.svg)](https://github.com/remarkablemark/jira-dashboard-gadget-issue-formula/actions/workflows/build.yml)
+
 <kbd>Issue Formula</kbd> is a [Jira dashboard gadget](https://developer.atlassian.com/platform/forge/manifest-reference/modules/jira-dashboard-gadget/) that calculates mathematical formulas with issue data.
 
 See [wiki](https://github.com/remarkablemark/jira-dashboard-gadget-issue-formula/wiki/).
