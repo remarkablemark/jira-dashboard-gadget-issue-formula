@@ -28,7 +28,7 @@ export default function Formula(props: Props) {
       xcss={containerStyles}
     >
       <div>
-        <Heading as="h1" variant="xxlarge">
+        <Heading as="h1" size="xxlarge">
           <Box as="span" xcss={valueStyles}>
             {props.value}
           </Box>
@@ -36,7 +36,7 @@ export default function Formula(props: Props) {
 
         <br />
 
-        <Heading as="h2" variant="medium">
+        <Heading as="h2" size="medium">
           {props.label}
         </Heading>
       </div>
