@@ -4,12 +4,14 @@
 
 # Issue Formula
 
-![release](https://img.shields.io/github/v/release/remarkablemark/jira-dashboard-gadget-issue-formula)
+[![release](https://img.shields.io/github/v/release/remarkablemark/jira-dashboard-gadget-issue-formula)](https://github.com/remarkablemark/jira-dashboard-gadget-issue-formula/releases)
 [![build](https://github.com/remarkablemark/jira-dashboard-gadget-issue-formula/actions/workflows/build.yml/badge.svg)](https://github.com/remarkablemark/jira-dashboard-gadget-issue-formula/actions/workflows/build.yml)
 
 <kbd>Issue Formula</kbd> is a [Jira dashboard gadget](https://developer.atlassian.com/platform/forge/manifest-reference/modules/jira-dashboard-gadget/) that calculates mathematical formulas with issue data.
 
-See [wiki](https://github.com/remarkablemark/jira-dashboard-gadget-issue-formula/wiki/).
+[Get it now](https://marketplace.atlassian.com/apps/1233729/issue-formula). Read the [wiki](https://github.com/remarkablemark/jira-dashboard-gadget-issue-formula/wiki/).
+
+[![Static Badge](https://img.shields.io/badge/Get_it_now-f5cd47?style=for-the-badge&logo=atlassian&logoColor=0052cc)](https://marketplace.atlassian.com/apps/1233729/issue-formula)
 
 ## Prerequisites
 
