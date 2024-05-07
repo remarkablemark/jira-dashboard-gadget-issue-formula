@@ -11,7 +11,7 @@
 
 [Get it now](https://marketplace.atlassian.com/apps/1233729/issue-formula). Read the [wiki](https://github.com/remarkablemark/jira-dashboard-gadget-issue-formula/wiki/).
 
-[![Static Badge](https://img.shields.io/badge/Get_it_now-f5cd47?style=for-the-badge&logo=atlassian&logoColor=0052cc)](https://marketplace.atlassian.com/apps/1233729/issue-formula)
+[![Get it now](https://img.shields.io/badge/Get_it_now-f5cd47?style=for-the-badge&logo=atlassian&logoColor=0052cc)](https://marketplace.atlassian.com/apps/1233729/issue-formula)
 
 ## Prerequisites
 
