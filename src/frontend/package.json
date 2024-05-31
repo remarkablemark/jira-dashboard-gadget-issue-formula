@@ -23,12 +23,12 @@
     "@atlaskit/textfield": "6.3.1",
     "@forge/bridge": "3.4.0",
     "expr-eval": "2.0.2",
-    "react": "16",
+    "react": "18",
     "react-dom": "18",
     "zustand": "4.5.2"
   },
   "devDependencies": {
-    "@types/react": "18.2.62",
+    "@types/react": "18.3.3",
     "@types/react-dom": "18.3.0",
     "@vitejs/plugin-react-swc": "3.7.0",
     "eslint-plugin-react": "7.34.2",
