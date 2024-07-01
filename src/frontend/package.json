@@ -16,7 +16,7 @@
     "@atlaskit/form": "10.4.5",
     "@atlaskit/heading": "2.4.2",
     "@atlaskit/icon": "22.5.1",
-    "@atlaskit/primitives": "9.0.0",
+    "@atlaskit/primitives": "10.0.0",
     "@atlaskit/select": "17.11.3",
     "@atlaskit/spinner": "16.2.0",
     "@atlaskit/textarea": "5.5.1",
