@@ -21,7 +21,7 @@
     "@atlaskit/spinner": "16.2.0",
     "@atlaskit/textarea": "5.5.1",
     "@atlaskit/textfield": "6.4.2",
-    "@forge/bridge": "3.4.0",
+    "@forge/bridge": "3.5.0",
     "expr-eval": "2.0.2",
     "react": "16",
     "react-dom": "18",
