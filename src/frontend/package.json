@@ -20,7 +20,7 @@
     "@atlaskit/select": "17.11.11",
     "@atlaskit/spinner": "16.2.0",
     "@atlaskit/textarea": "5.5.1",
-    "@atlaskit/textfield": "6.4.2",
+    "@atlaskit/textfield": "6.4.3",
     "@forge/bridge": "3.5.0",
     "expr-eval": "2.0.2",
     "react": "16",
