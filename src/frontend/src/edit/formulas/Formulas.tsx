@@ -16,7 +16,7 @@ export default function Formulas() {
         description={
           <>
             Mathematical calculations using variables. For example:{' '}
-            <Code>a + b</Code> or <Code>var_1 / var_2 * 100</Code>.
+            <Code>a + b</Code> or <Code>(var_1 / var_2) * 100</Code>.
           </>
         }
       >
