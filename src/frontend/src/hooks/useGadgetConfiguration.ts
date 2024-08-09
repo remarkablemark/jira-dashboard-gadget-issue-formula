@@ -26,7 +26,10 @@ export function useGadgetConfiguration(): Result {
       });
     });
 
-    import.meta.env.DEV && log.info('formValues:', formValues);
+    if (import.meta.env.DEV) {
+      log.info('formValues:', formValues);
+    }
+
     setFormValues(formValues);
   }, [formValues, setFormValues]);
 

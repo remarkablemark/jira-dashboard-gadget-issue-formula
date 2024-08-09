@@ -14,13 +14,24 @@ export default function Edit() {
   const { formValues: oldFormValues } = useGadgetConfiguration();
   const formValues = useFormValues();
 
+  function handleSubmit() {
+    if (import.meta.env.DEV) {
+      log.info('submit:', formValues);
+    }
+    view.submit(formValues);
+  }
+
+  function handleCancel() {
+    if (import.meta.env.DEV) {
+      log.info('cancel');
+    }
+    if (formValues) {
+      view.submit(oldFormValues);
+    }
+  }
+
   return (
-    <Form<FormValues>
-      onSubmit={() => {
-        import.meta.env.DEV && log.info('submit:', formValues);
-        view.submit(formValues);
-      }}
-    >
+    <Form<FormValues> onSubmit={handleSubmit}>
       {({ formProps, submitting }) => (
         <form {...formProps}>
           <Variables />
@@ -36,14 +47,7 @@ export default function Edit() {
                 Save
               </LoadingButton>
 
-              <Button
-                onClick={() => {
-                  import.meta.env.DEV && log.info('cancel');
-                  formValues && view.submit(oldFormValues);
-                }}
-              >
-                Cancel
-              </Button>
+              <Button onClick={handleCancel}>Cancel</Button>
             </ButtonGroup>
           </FormFooter>
         </form>
