@@ -15,17 +15,55 @@ interface State extends FormValues {
   deleteFormula: (index: number) => void;
 }
 
-export const useFormValuesStore = create<State>()((set) => ({
-  decimal: [],
-  formula: [],
+const variableInitialState = {
+  variable: [],
   function: [],
   jql: [],
+};
+
+type VariableKey = keyof typeof variableInitialState;
+
+const formulaInitialState = {
+  formula: [],
   label: [],
-  variable: [],
+  decimal: [],
+  prefix: [],
+};
 
-  setFormValues: (formValues) => set(() => formValues),
+type FormulaKey = keyof typeof formulaInitialState;
 
-  updateFormValue: (key, index, value) =>
+export const useFormValuesStore = create<State>()((set) => ({
+  ...variableInitialState,
+  ...formulaInitialState,
+
+  setFormValues: (formValues) =>
+    set(() => {
+      // backfill variable if missing
+      (Object.keys(variableInitialState) as VariableKey[]).forEach(
+        (variableKey) => {
+          if (!formValues[variableKey]) {
+            formValues[variableKey] = new Array(
+              formValues.variable.length,
+            ).fill('');
+          }
+        },
+      );
+
+      // backfill formula if missing
+      (Object.keys(formulaInitialState) as FormulaKey[]).forEach(
+        (formulaKey) => {
+          if (!formValues[formulaKey]) {
+            formValues[formulaKey] = new Array(formValues.formula.length).fill(
+              '',
+            );
+          }
+        },
+      );
+
+      return formValues;
+    }),
+
+  updateFormValue: (key: VariableKey | FormulaKey, index, value) =>
     set((state) => {
       const newState = { ...state };
       if (key === 'function') {
@@ -49,10 +87,13 @@ export const useFormValuesStore = create<State>()((set) => ({
   deleteVariable: (index) =>
     set((state) => {
       const newState = { ...state };
-      (['variable', 'function', 'jql'] as const).forEach((key) => {
-        delete newState[key][index];
+      const variableKeys = Object.keys(variableInitialState) as VariableKey[];
+      variableKeys.forEach((variableKey) => {
+        delete newState[variableKey][index];
         // @ts-expect-error valid type
-        newState[key] = newState[key].filter((value) => value !== undefined);
+        newState[variableKey] = newState[variableKey].filter(
+          (value) => value !== undefined,
+        );
       });
       return newState;
     }),
@@ -62,6 +103,7 @@ export const useFormValuesStore = create<State>()((set) => ({
       formula: state.formula.concat(''),
       label: state.label.concat(''),
       decimal: state.decimal.concat('0'),
+      prefix: state.prefix.concat(''),
     })),
 
   deleteFormula: (index) =>
@@ -69,5 +111,6 @@ export const useFormValuesStore = create<State>()((set) => ({
       formula: state.formula.filter((_, idx) => idx !== index),
       label: state.label.filter((_, idx) => idx !== index),
       decimal: state.decimal.filter((_, idx) => idx !== index),
+      prefix: state.prefix.filter((_, idx) => idx !== index),
     })),
 }));
