@@ -7,7 +7,7 @@
     "build": "npm run build --workspace=frontend",
     "clean": "npm run clean --workspace=frontend",
     "deploy": "npm run build && forge deploy && forge install --upgrade",
-    "lint": "npm run clean && eslint . && npm run lint:forge",
+    "lint": "npm run clean && eslint . && npm run build && npm run lint:forge",
     "lint:fix": "npm run clean && eslint . --fix",
     "lint:forge": "forge lint",
     "lint:tsc": "npm run lint:tsc --workspace=frontend",
