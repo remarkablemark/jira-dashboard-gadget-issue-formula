@@ -5,5 +5,6 @@ export interface FormValues {
   jql: string[];
   label: string[];
   prefix: string[];
+  suffix: string[];
   variable: string[];
 }
