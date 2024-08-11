@@ -57,6 +57,20 @@ export default function FormulaSection(props: Props) {
         isRequired
       />
 
+      <TextField
+        name={`prefix[${props.index}]`}
+        label={props.showLabel && 'Prefix'}
+        value={formValues.prefix[props.index]}
+        onChange={(event) => {
+          formValues.updateFormValue(
+            'prefix',
+            props.index,
+            (event.target as HTMLInputElement).value,
+          );
+        }}
+        width={55}
+      />
+
       <DeleteButton
         label="Delete formula"
         onClick={() => formValues.deleteFormula(props.index)}

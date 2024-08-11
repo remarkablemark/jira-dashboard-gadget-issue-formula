@@ -38,12 +38,13 @@ export const Blank: Story = {
   decorators: [
     (story) => {
       const formValues = {
-        decimal: [],
+        variable: [],
         function: [],
         jql: [],
         formula: [],
         label: [],
-        variable: [],
+        decimal: [],
+        prefix: [],
       };
       return <Store formValues={formValues}>{story()}</Store>;
     },
@@ -54,7 +55,7 @@ export const Filled: Story = {
   decorators: [
     (story) => {
       const formValues = {
-        decimal: ['0', '1'],
+        variable: ['a', 'b'],
         function: [
           { label: 'COUNT', value: 'COUNT' },
           { label: 'COUNT', value: 'COUNT' },
@@ -62,7 +63,8 @@ export const Filled: Story = {
         jql: ['description IS EMPTY', 'status IN ("In Progress", "Closed")'],
         formula: ['a + b', 'a / b * 100'],
         label: ['Total', 'Percentage'],
-        variable: ['a', 'b'],
+        decimal: ['0', '1'],
+        prefix: ['', ''],
       };
       return <Store formValues={formValues}>{story()}</Store>;
     },

@@ -4,5 +4,6 @@ export interface FormValues {
   function: { label: string; value: string }[];
   jql: string[];
   label: string[];
+  prefix: string[];
   variable: string[];
 }
