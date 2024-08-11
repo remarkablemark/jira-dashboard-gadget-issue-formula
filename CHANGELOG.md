@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/remarkablemark/jira-dashboard-gadget-issue-formula/compare/v1.1.0...v1.2.0) (2024-08-11)
+
+
+### Features
+
+* **frontend:** add formula suffix ([cea3081](https://github.com/remarkablemark/jira-dashboard-gadget-issue-formula/commit/cea30813c164e9a75f4f059a9d8ef03bb6d71a83))
+
 ## [1.1.0](https://github.com/remarkablemark/jira-dashboard-gadget-issue-formula/compare/v1.0.2...v1.1.0) (2024-08-11)
 
 ### Features
