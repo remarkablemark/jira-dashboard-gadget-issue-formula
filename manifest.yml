@@ -27,7 +27,5 @@ permissions:
 
 app:
   id: ari:cloud:ecosystem::app/b61c9830-6619-4c99-9e7d-3cc0cdbf6423
-  licensing:
-    enabled: true
   runtime:
     name: nodejs18.x
