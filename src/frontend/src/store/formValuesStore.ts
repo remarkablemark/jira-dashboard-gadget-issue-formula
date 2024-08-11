@@ -28,6 +28,7 @@ const formulaInitialState = {
   label: [],
   decimal: [],
   prefix: [],
+  suffix: [],
 };
 
 type FormulaKey = keyof typeof formulaInitialState;
@@ -104,6 +105,7 @@ export const useFormValuesStore = create<State>()((set) => ({
       label: state.label.concat(''),
       decimal: state.decimal.concat('0'),
       prefix: state.prefix.concat(''),
+      suffix: state.suffix.concat(''),
     })),
 
   deleteFormula: (index) =>
@@ -112,5 +114,6 @@ export const useFormValuesStore = create<State>()((set) => ({
       label: state.label.filter((_, idx) => idx !== index),
       decimal: state.decimal.filter((_, idx) => idx !== index),
       prefix: state.prefix.filter((_, idx) => idx !== index),
+      suffix: state.suffix.filter((_, idx) => idx !== index),
     })),
 }));

@@ -46,10 +46,9 @@ function transform(formValues: FormValues, issues: Issue[]) {
       log.error('expr-eval:', error);
     }
 
-    const prefix = formValues.prefix[index];
-    if (prefix) {
-      value = `${prefix}${value}`;
-    }
+    const prefix = formValues.prefix[index] || '';
+    const suffix = formValues.suffix[index] || '';
+    value = `${prefix}${value}${suffix}`;
 
     return {
       label,

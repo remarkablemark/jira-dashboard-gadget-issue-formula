@@ -10,6 +10,7 @@ export function useFormValues() {
     jql: formValues.jql,
     label: formValues.label,
     prefix: formValues.prefix,
+    suffix: formValues.suffix,
     variable: formValues.variable,
   };
 }

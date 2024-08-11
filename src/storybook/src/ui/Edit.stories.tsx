@@ -45,6 +45,7 @@ export const Blank: Story = {
         label: [],
         decimal: [],
         prefix: [],
+        suffix: [],
       };
       return <Store formValues={formValues}>{story()}</Store>;
     },
@@ -64,7 +65,8 @@ export const Filled: Story = {
         formula: ['a + b', 'a / b * 100'],
         label: ['Total', 'Percentage'],
         decimal: ['0', '1'],
-        prefix: ['', ''],
+        prefix: ['#', ''],
+        suffix: ['', '%'],
       };
       return <Store formValues={formValues}>{story()}</Store>;
     },
