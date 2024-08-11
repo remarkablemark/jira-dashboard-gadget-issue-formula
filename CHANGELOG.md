@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.1](https://github.com/remarkablemark/jira-dashboard-gadget-issue-formula/compare/v1.2.0...v1.2.1) (2024-08-11)
+
+
+### Build System
+
+* **manifest:** remove app property licensing ([38ef738](https://github.com/remarkablemark/jira-dashboard-gadget-issue-formula/commit/38ef7381510fdf73e5ce338a7dc649d6abafe7da))
+
 ## [1.2.0](https://github.com/remarkablemark/jira-dashboard-gadget-issue-formula/compare/v1.1.0...v1.2.0) (2024-08-11)
 
 
