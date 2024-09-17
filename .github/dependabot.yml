@@ -10,9 +10,15 @@ updates:
     schedule:
       interval: 'daily'
     groups:
+      atlaskit:
+        patterns:
+          - '@atlaskit/*'
       commitlint:
         patterns:
           - '@commitlint/*'
+      eslint:
+        patterns:
+          - '@eslint/*'
       prettier:
         patterns:
           - prettier
