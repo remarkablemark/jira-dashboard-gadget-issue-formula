@@ -5,7 +5,7 @@
 
 ### Bug Fixes
 
-* **package:** downgrade @forge/cli from 7.1.0 to 8.0.0 ([27c0637](https://github.com/remarkablemark/jira-dashboard-gadget-issue-formula/commit/27c06379536eae4792ee7696a97cc969ab882696)), closes [#94](https://github.com/remarkablemark/jira-dashboard-gadget-issue-formula/issues/94)
+* **package:** downgrade @forge/cli from 7.1.0 to 8.0.0 ([27c0637](https://github.com/remarkablemark/jira-dashboard-gadget-issue-formula/commit/27c06379536eae4792ee7696a97cc969ab882696)), reverts [#94](https://github.com/remarkablemark/jira-dashboard-gadget-issue-formula/issues/94)
 
 ## [1.2.2](https://github.com/remarkablemark/jira-dashboard-gadget-issue-formula/compare/v1.2.1...v1.2.2) (2024-09-23)
 
