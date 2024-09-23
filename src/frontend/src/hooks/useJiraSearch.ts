@@ -9,7 +9,7 @@ export function useJiraSearch(formValues: FormValues) {
   const [issues, setIssues] = useState<Issue[]>([]);
 
   useEffect(() => {
-    if (!formValues.jql.length) {
+    if (!formValues.jql?.length) {
       return setIsLoading(false);
     }
 

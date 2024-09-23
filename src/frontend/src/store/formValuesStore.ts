@@ -44,7 +44,7 @@ export const useFormValuesStore = create<State>()((set) => ({
         (variableKey) => {
           if (!formValues[variableKey]) {
             formValues[variableKey] = new Array(
-              formValues.variable.length,
+              formValues.variable?.length || 0,
             ).fill('');
           }
         },
@@ -54,9 +54,9 @@ export const useFormValuesStore = create<State>()((set) => ({
       (Object.keys(formulaInitialState) as FormulaKey[]).forEach(
         (formulaKey) => {
           if (!formValues[formulaKey]) {
-            formValues[formulaKey] = new Array(formValues.formula.length).fill(
-              '',
-            );
+            formValues[formulaKey] = new Array(
+              formValues.formula?.length || 0,
+            ).fill('');
           }
         },
       );
