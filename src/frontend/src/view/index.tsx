@@ -14,7 +14,7 @@ export default function ViewContext() {
     return <Spinner label="Loading" />;
   }
 
-  if (!formValues.variable.length || !formValues.formula.length) {
+  if (!formValues.variable?.length || !formValues.formula?.length) {
     return null;
   }
 
