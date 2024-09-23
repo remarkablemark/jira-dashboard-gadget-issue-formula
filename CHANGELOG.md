@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.5](https://github.com/remarkablemark/jira-dashboard-gadget-issue-formula/compare/v1.2.4...v1.2.5) (2024-09-23)
+
+
+### Build System
+
+* **package:** bump @forge/cli from 7.1.0 to 10.5.0 ([db9d156](https://github.com/remarkablemark/jira-dashboard-gadget-issue-formula/commit/db9d156348a0ebb3df1854113493c7ee7fb30237))
+
 ## [1.2.4](https://github.com/remarkablemark/jira-dashboard-gadget-issue-formula/compare/v1.2.3...v1.2.4) (2024-09-23)
 
 ### Bug Fixes
