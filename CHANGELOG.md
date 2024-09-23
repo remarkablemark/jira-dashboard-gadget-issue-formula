@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.2](https://github.com/remarkablemark/jira-dashboard-gadget-issue-formula/compare/v1.2.1...v1.2.2) (2024-09-23)
+
+
+### Bug Fixes
+
+* **package:** revert @forge/cli from 10.5.0 to 8.0.1 ([9ca35df](https://github.com/remarkablemark/jira-dashboard-gadget-issue-formula/commit/9ca35df17a82052adfebff4f0360259ea3f50380))
+
 ## [1.2.1](https://github.com/remarkablemark/jira-dashboard-gadget-issue-formula/compare/v1.2.0...v1.2.1) (2024-08-11)
 
 
