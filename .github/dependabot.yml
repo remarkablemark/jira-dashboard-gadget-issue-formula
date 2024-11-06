@@ -23,6 +23,10 @@ updates:
         patterns:
           - prettier
           - eslint-plugin-prettier
+      storybook:
+        patterns:
+          - '@storybook/*'
+          - storybook
       typescript-eslint:
         patterns:
           - '@typescript-eslint/*'
