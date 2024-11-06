@@ -30,7 +30,8 @@
   },
   "workspaces": [
     "src/backend",
-    "src/frontend"
+    "src/frontend",
+    "src/storybook"
   ],
   "private": true,
   "license": "MIT"

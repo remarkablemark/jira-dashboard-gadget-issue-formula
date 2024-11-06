@@ -32,3 +32,6 @@ jobs:
 
       - name: Build app
         run: npm run build
+
+      - name: Build Storybook
+        run: npm run build-storybook --prefix=src/storybook
