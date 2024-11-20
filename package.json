@@ -16,8 +16,8 @@
     "storybook": "npm run storybook --prefix=src/storybook"
   },
   "devDependencies": {
-    "@commitlint/cli": "19.5.0",
-    "@commitlint/config-conventional": "19.5.0",
+    "@commitlint/cli": "19.6.0",
+    "@commitlint/config-conventional": "19.6.0",
     "@eslint/compat": "1.2.3",
     "@forge/cli": "10.11.0",
     "eslint": "9.15.0",
