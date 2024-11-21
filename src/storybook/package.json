@@ -6,6 +6,7 @@
     "lint": "eslint . --report-unused-disable-directives --max-warnings 0",
     "lint:fix": "npm run lint -- --fix",
     "lint:tsc": "tsc --noEmit",
+    "start": "npm run storybook",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
@@ -14,7 +15,7 @@
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "@chromatic-com/storybook": "^2.0.2",
+    "@chromatic-com/storybook": "3.2.2",
     "@eslint/compat": "1.2.3",
     "@eslint/eslintrc": "3.2.0",
     "@eslint/js": "9.15.0",
