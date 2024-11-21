@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.6](https://github.com/remarkablemark/jira-dashboard-gadget-issue-formula/compare/v1.2.5...v1.2.6) (2024-11-21)
+
+
+### Bug Fixes
+
+* **frontend:** downgrade zustand from v5 to v4 ([ea32839](https://github.com/remarkablemark/jira-dashboard-gadget-issue-formula/commit/ea32839ec8c664ec46cc091e2dbf0fad2c68e28d))
+
 ## [1.2.5](https://github.com/remarkablemark/jira-dashboard-gadget-issue-formula/compare/v1.2.4...v1.2.5) (2024-09-23)
 
 
