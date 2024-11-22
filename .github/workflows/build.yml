@@ -28,8 +28,7 @@ jobs:
           FORGE_EMAIL: ${{ secrets.FORGE_EMAIL }}
 
       - name: Type check Forge app
-        run: |
-          npm run lint:tsc
+        run: npm run lint:tsc
 
       - name: Build Forge app
         run: npm run build
