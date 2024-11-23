@@ -7,7 +7,9 @@
     "lint": "npm run clean && eslint .",
     "lint:fix": "npm run lint -- --fix",
     "lint:tsc": "tsc --noEmit",
-    "start": "vite --open"
+    "start": "vite --open",
+    "test": "jest --watch",
+    "test:ci": "jest --ci --coverage --colors"
   },
   "dependencies": {
     "@atlaskit/button": "20.3.2",
