@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 
+import { DEV } from '../env';
 import { decode, log } from '../helpers';
 import { useFormValuesStore } from '../store';
 import type { FormValues } from '../types';
@@ -26,7 +27,7 @@ export function useGadgetConfiguration(): Result {
       });
     });
 
-    if (import.meta.env.DEV) {
+    if (DEV) {
       log.info('formValues:', formValues);
     }
 

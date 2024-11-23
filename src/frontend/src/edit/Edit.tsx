@@ -4,6 +4,7 @@ import Button from '@atlaskit/button/new';
 import Form, { FormFooter } from '@atlaskit/form';
 import { view } from '@forge/bridge';
 
+import { DEV } from '../env';
 import { log } from '../helpers';
 import { useFormValues, useGadgetConfiguration } from '../hooks';
 import type { FormValues } from '../types';
@@ -15,14 +16,14 @@ export default function Edit() {
   const formValues = useFormValues();
 
   function handleSubmit() {
-    if (import.meta.env.DEV) {
+    if (DEV) {
       log.info('submit:', formValues);
     }
     view.submit(formValues);
   }
 
   function handleCancel() {
-    if (import.meta.env.DEV) {
+    if (DEV) {
       log.info('cancel');
     }
     if (formValues) {
