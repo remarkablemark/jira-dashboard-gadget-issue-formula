@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.7](https://github.com/remarkablemark/jira-dashboard-gadget-issue-formula/compare/v1.2.6...v1.2.7) (2024-11-23)
+
+
+### Build System
+
+* **package:** upgrade react from 16 to 18 ([62176ee](https://github.com/remarkablemark/jira-dashboard-gadget-issue-formula/commit/62176ee356547fd8e43658179e11b355c57552b5))
+
 ## [1.2.6](https://github.com/remarkablemark/jira-dashboard-gadget-issue-formula/compare/v1.2.5...v1.2.6) (2024-11-21)
 
 
