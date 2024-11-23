@@ -18,6 +18,9 @@ jobs:
       - name: Install dependencies
         run: npm ci --prefer-offline
 
+      - name: Run tests
+        run: npm test
+
       - name: Disable Forge telemetry
         run: npx forge settings set usage-analytics false
 
