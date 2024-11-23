@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.8](https://github.com/remarkablemark/jira-dashboard-gadget-issue-formula/compare/v1.2.7...v1.2.8) (2024-11-23)
+
+
+### Performance Improvements
+
+* **frontend:** refactor to `react-dom/client` createRoot ([ca9a243](https://github.com/remarkablemark/jira-dashboard-gadget-issue-formula/commit/ca9a2437c83391151a5058ac25144b6dc6671d07))
+
 ## [1.2.7](https://github.com/remarkablemark/jira-dashboard-gadget-issue-formula/compare/v1.2.6...v1.2.7) (2024-11-23)
 
 
