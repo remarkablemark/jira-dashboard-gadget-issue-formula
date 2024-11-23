@@ -1,16 +1,16 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/remarkablemark/jira-dashboard-gadget-issue-formula/master/icon.svg" alt="Issue Formula" width="65">
+  <img src="https://raw.githubusercontent.com/remarkablemark/issue-formula/master/icon.svg" alt="Issue Formula" width="65">
 </p>
 
 # Issue Formula
 
 [![jira](https://badgen.net/badge/jira/Issue%20Formula?icon&label)](https://marketplace.atlassian.com/1233729)
-[![release](https://img.shields.io/github/v/release/remarkablemark/jira-dashboard-gadget-issue-formula)](https://github.com/remarkablemark/jira-dashboard-gadget-issue-formula/releases)
-[![build](https://github.com/remarkablemark/jira-dashboard-gadget-issue-formula/actions/workflows/build.yml/badge.svg)](https://github.com/remarkablemark/jira-dashboard-gadget-issue-formula/actions/workflows/build.yml)
+[![release](https://img.shields.io/github/v/release/remarkablemark/issue-formula)](https://github.com/remarkablemark/issue-formula/releases)
+[![build](https://github.com/remarkablemark/issue-formula/actions/workflows/build.yml/badge.svg)](https://github.com/remarkablemark/issue-formula/actions/workflows/build.yml)
 
 <kbd>Issue Formula</kbd> is a [Jira dashboard gadget](https://developer.atlassian.com/platform/forge/manifest-reference/modules/jira-dashboard-gadget/) that calculates mathematical formulas with issue data.
 
-[Get it now](https://marketplace.atlassian.com/apps/1233729/issue-formula). Read the [wiki](https://github.com/remarkablemark/jira-dashboard-gadget-issue-formula/wiki/).
+[Get it now](https://marketplace.atlassian.com/apps/1233729/issue-formula). Read the [wiki](https://github.com/remarkablemark/issue-formula/wiki/).
 
 [![Get it now](https://img.shields.io/badge/Get_it_now-f5cd47?style=for-the-badge&logo=atlassian&logoColor=0052cc)](https://marketplace.atlassian.com/apps/1233729/issue-formula)
 
@@ -23,8 +23,8 @@
 Clone the repository:
 
 ```sh
-git clone https://github.com/remarkablemark/jira-dashboard-gadget-issue-formula.git
-cd jira-dashboard-gadget-issue-formula
+git clone https://github.com/remarkablemark/issue-formula.git
+cd issue-formula
 ```
 
 Install the dependecies:
