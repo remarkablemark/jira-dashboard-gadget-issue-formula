@@ -4,6 +4,11 @@
 // learn more: https://github.com/testing-library/jest-dom
 import '@testing-library/jest-dom';
 
+import { act, renderHook } from '@testing-library/react';
+
+import { useFormValuesStore } from '../src/store';
+import { FormValues } from '../src/types';
+
 jest.mock('@forge/bridge', () => ({
   requestJira: jest.fn().mockResolvedValue({ json: jest.fn() }),
   view: {
@@ -13,3 +18,11 @@ jest.mock('@forge/bridge', () => ({
 }));
 
 jest.mock('../src/env');
+
+// reset store
+beforeEach(() => {
+  const { result } = renderHook(() => useFormValuesStore());
+  act(() => {
+    result.current.setFormValues({} as FormValues);
+  });
+});

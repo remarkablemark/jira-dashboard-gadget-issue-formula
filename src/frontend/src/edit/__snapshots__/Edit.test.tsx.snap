@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`new gadget adds variable and formula 1`] = `
+{
+  "decimal": [
+    "2",
+  ],
+  "formula": [
+    "a / 100",
+  ],
+  "function": [
+    {
+      "label": "COUNT",
+      "value": "COUNT",
+    },
+  ],
+  "jql": [
+    "created >= -30d",
+  ],
+  "label": [
+    "monthly issues",
+  ],
+  "prefix": [
+    "#",
+  ],
+  "suffix": [
+    "%",
+  ],
+  "variable": [
+    "a",
+  ],
+}
+`;
