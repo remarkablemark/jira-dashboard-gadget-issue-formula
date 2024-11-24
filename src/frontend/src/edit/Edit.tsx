@@ -3,6 +3,7 @@ import LoadingButton from '@atlaskit/button/loading-button';
 import Button from '@atlaskit/button/new';
 import Form, { FormFooter } from '@atlaskit/form';
 import { view } from '@forge/bridge';
+import { useCallback } from 'react';
 
 import { DEV } from '../env';
 import { log } from '../helpers';
@@ -15,21 +16,21 @@ export default function Edit() {
   const { formValues: oldFormValues } = useGadgetConfiguration();
   const formValues = useFormValues();
 
-  function handleSubmit() {
+  const handleSubmit = useCallback(() => {
     if (DEV) {
       log.info('submit:', formValues);
     }
     view.submit(formValues);
-  }
+  }, [formValues]);
 
-  function handleCancel() {
+  const handleCancel = useCallback(() => {
     if (DEV) {
       log.info('cancel');
     }
     if (formValues) {
       view.submit(oldFormValues);
     }
-  }
+  }, [formValues, oldFormValues]);
 
   return (
     <Form<FormValues> onSubmit={handleSubmit}>
