@@ -5,21 +5,23 @@ import type { FullContext } from '../types';
 import Edit from './Edit';
 
 const mockedView = jest.mocked(view);
+let consoleErrorSpy: jest.SpyInstance;
+
+beforeEach(() => {
+  // suppress React deprecated Context API error
+  consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation();
+});
+
+afterEach(() => {
+  consoleErrorSpy.mockRestore();
+});
 
 // with no data
 describe('new gadget', () => {
-  let consoleErrorSpy: jest.SpyInstance;
-
   beforeEach(() => {
     mockedView.getContext.mockResolvedValueOnce({
       extension: { gadgetConfiguration: undefined },
     } as unknown as FullContext);
-    // suppress React deprecated Context API error
-    consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation();
-  });
-
-  afterEach(() => {
-    consoleErrorSpy.mockRestore();
   });
 
   it('renders headings', async () => {
@@ -42,8 +44,13 @@ describe('new gadget', () => {
     });
   });
 
-  it('adds variable row', async () => {
+  it('adds and deletes variable row', async () => {
     render(<Edit />);
+    await waitFor(() => {
+      expect(screen.queryAllByRole('textbox')).toHaveLength(0);
+    });
+
+    // add
     fireEvent.click(screen.getByRole('button', { name: 'Add variable' }));
     await waitFor(() => {
       expect(screen.getAllByRole('textbox')).toHaveLength(2);
@@ -53,13 +60,24 @@ describe('new gadget', () => {
     });
     // Function
     expect(screen.getByDisplayValue('COUNT')).toBeInTheDocument();
+
+    // delete
+    fireEvent.click(screen.getByRole('button', { name: 'Delete variable' }));
+    await waitFor(() => {
+      expect(screen.queryAllByRole('textbox')).toHaveLength(0);
+    });
   });
 
-  it('adds formula row', async () => {
+  it('adds and deletes formula row', async () => {
     render(<Edit />);
+    await waitFor(() => {
+      expect(screen.queryAllByRole('textbox')).toHaveLength(0);
+    });
+
+    // add
     fireEvent.click(screen.getByRole('button', { name: 'Add formula' }));
     await waitFor(() => {
-      expect(screen.getAllByRole('textbox')).toHaveLength(6);
+      expect(screen.getAllByRole('textbox')).toHaveLength(4);
     });
     ['Math Formula', 'Label', 'Decimals', 'Prefix', 'Suffix'].forEach(
       (label) => {
@@ -68,5 +86,11 @@ describe('new gadget', () => {
     );
     // Decimals
     expect(screen.getByDisplayValue('0')).toBeInTheDocument();
+
+    // delete
+    fireEvent.click(screen.getByRole('button', { name: 'Delete formula' }));
+    await waitFor(() => {
+      expect(screen.queryAllByRole('textbox')).toHaveLength(0);
+    });
   });
 });
