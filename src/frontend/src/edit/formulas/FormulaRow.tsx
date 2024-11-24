@@ -8,7 +8,7 @@ interface Props {
   showLabel?: boolean;
 }
 
-export default function FormulaSection(props: Props) {
+export default function FormulaRow(props: Props) {
   const formValues = useFormValuesStore();
 
   return (

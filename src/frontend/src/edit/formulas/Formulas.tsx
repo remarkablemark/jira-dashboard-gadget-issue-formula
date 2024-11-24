@@ -4,7 +4,7 @@ import { Box } from '@atlaskit/primitives';
 
 import { useFormValuesStore } from '../../hooks';
 import { AddButton } from '../../shared';
-import FormulaSection from './FormulaSection';
+import FormulaRow from './FormulaRow';
 
 export default function Formulas() {
   const { formula, addFormula } = useFormValuesStore();
@@ -21,7 +21,7 @@ export default function Formulas() {
         }
       >
         {formula.map((_, index) => (
-          <FormulaSection key={index} index={index} showLabel={!index} />
+          <FormulaRow key={index} index={index} showLabel={!index} />
         ))}
       </FormSection>
 
