@@ -11,7 +11,7 @@ interface Props {
   showLabel?: boolean;
 }
 
-export default function VariableSection(props: Props) {
+export default function VariableRow(props: Props) {
   const formValues = useFormValuesStore();
 
   return (

@@ -4,7 +4,7 @@ import { Box } from '@atlaskit/primitives';
 
 import { useFormValuesStore } from '../../hooks';
 import { AddButton } from '../../shared';
-import VariableSection from './VariableSection';
+import VariableRow from './VariableRow';
 
 export default function Variables() {
   const { variable, addVariable } = useFormValuesStore();
@@ -21,7 +21,7 @@ export default function Variables() {
         }
       >
         {variable.map((_, index) => (
-          <VariableSection key={index} index={index} showLabel={!index} />
+          <VariableRow key={index} index={index} showLabel={!index} />
         ))}
       </FormSection>
 
