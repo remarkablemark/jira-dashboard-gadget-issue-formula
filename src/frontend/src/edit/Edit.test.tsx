@@ -19,3 +19,15 @@ it('renders headings', async () => {
     });
   });
 });
+
+it('renders buttons', async () => {
+  mockedView.getContext.mockResolvedValueOnce({
+    extension: { gadgetConfiguration: undefined },
+  } as unknown as FullContext);
+  render(<Edit />);
+  await waitFor(() => {
+    ['Save', 'Cancel'].forEach((name) => {
+      expect(screen.getByRole('button', { name })).toBeInTheDocument();
+    });
+  });
+});
