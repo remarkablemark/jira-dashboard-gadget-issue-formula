@@ -1,5 +1,6 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 
+import { clickButton } from '../../../test/helpers';
 import Formulas from './Formulas';
 
 const INPUT_COUNT_PER_ROW = 4;
@@ -22,7 +23,7 @@ it('renders button', () => {
 });
 
 it('adds formula', () => {
-  fireEvent.click(screen.getByRole('button', { name: 'Add formula' }));
+  clickButton('Add formula');
   expect(screen.getAllByRole('textbox')).toHaveLength(INPUT_COUNT_PER_ROW);
   ['Math Formula', 'Label', 'Decimals', 'Prefix', 'Suffix'].forEach((label) => {
     expect(screen.getByLabelText(label)).toBeInTheDocument();
@@ -33,11 +34,7 @@ it('adds formula', () => {
 
 it('adds formula', () => {
   const rows = 2;
-  Array(rows)
-    .fill(null)
-    .forEach(() => {
-      fireEvent.click(screen.getByRole('button', { name: 'Add formula' }));
-    });
+  [...Array(rows)].forEach(() => clickButton('Add formula'));
   expect(screen.getAllByRole('textbox')).toHaveLength(
     INPUT_COUNT_PER_ROW * rows,
   );
@@ -45,10 +42,10 @@ it('adds formula', () => {
 
 it('deletes formula', () => {
   // add
-  fireEvent.click(screen.getByRole('button', { name: 'Add formula' }));
+  clickButton('Add formula');
   expect(screen.getAllByRole('textbox')).toHaveLength(INPUT_COUNT_PER_ROW);
 
   // delete
-  fireEvent.click(screen.getByRole('button', { name: 'Delete formula' }));
+  clickButton('Delete formula');
   expect(screen.queryAllByRole('textbox')).toHaveLength(0);
 });

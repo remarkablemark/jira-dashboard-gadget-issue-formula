@@ -1,6 +1,7 @@
 import { view } from '@forge/bridge';
-import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 
+import { changeLabelValue, clickButton } from '../../test/helpers';
 import type { FormValues, FullContext } from '../types';
 import Edit from './Edit';
 
@@ -37,43 +38,31 @@ describe('without data', () => {
   });
 
   it('adds variable and formula', () => {
-    fireEvent.click(screen.getByRole('button', { name: 'Add variable' }));
-    fireEvent.change(screen.getByLabelText('Variable'), {
-      target: { value: 'a' },
-    });
-    fireEvent.change(screen.getByLabelText('JQL'), {
-      target: { value: 'created >= -30d' },
-    });
+    clickButton('Add variable');
+    [
+      ['Variable', 'a'],
+      ['JQL', 'created >= -30d'],
+    ].forEach(([label, value]) => changeLabelValue(label, value));
 
-    fireEvent.click(screen.getByRole('button', { name: 'Add formula' }));
-    fireEvent.change(screen.getByLabelText('Math Formula'), {
-      target: { value: 'a / 100' },
-    });
-    fireEvent.change(screen.getByLabelText('Label'), {
-      target: { value: 'monthly issues' },
-    });
-    fireEvent.change(screen.getByLabelText('Decimals'), {
-      target: { value: '2' },
-    });
-    fireEvent.change(screen.getByLabelText('Prefix'), {
-      target: { value: '#' },
-    });
-    fireEvent.change(screen.getByLabelText('Suffix'), {
-      target: { value: '%' },
-    });
+    clickButton('Add formula');
+    [
+      ['Math Formula', 'a / 100'],
+      ['Label', 'monthly issues'],
+      ['Decimals', '2'],
+      ['Prefix', '#'],
+      ['Suffix', '%'],
+    ].forEach(([label, value]) => changeLabelValue(label, value));
 
-    fireEvent.click(screen.getByRole('button', { name: 'Save' }));
+    clickButton('Save');
     expect(mockedView.submit).toHaveBeenCalledTimes(1);
     expect(mockedView.submit.mock.calls[0][0]).toMatchSnapshot();
   });
 
   it('cancels edit', () => {
-    fireEvent.click(screen.getByRole('button', { name: 'Add variable' }));
-    fireEvent.change(screen.getByLabelText('Variable'), {
-      target: { value: 'a' },
-    });
+    clickButton('Add variable');
+    changeLabelValue('Variable', 'a');
 
-    fireEvent.click(screen.getByRole('button', { name: 'Cancel' }));
+    clickButton('Cancel');
     expect(mockedView.submit).toHaveBeenCalledTimes(1);
     expect(mockedView.submit).toHaveBeenCalledWith(undefined);
   });
@@ -112,40 +101,24 @@ describe('with data', () => {
   });
 
   it('updates variable and formula', () => {
-    fireEvent.change(screen.getByLabelText('Variable'), {
-      target: { value: 'b' },
-    });
-    fireEvent.change(screen.getByLabelText('JQL'), {
-      target: { value: 'created >= -7d' },
-    });
+    [
+      ['Variable', 'b'],
+      ['JQL', 'created >= -7d'],
+      ['Math Formula', 'b / 100'],
+      ['Label', 'weekly issues'],
+      ['Decimals', '1'],
+      ['Prefix', '~'],
+      ['Suffix', '*'],
+    ].forEach(([label, value]) => changeLabelValue(label, value));
 
-    fireEvent.change(screen.getByLabelText('Math Formula'), {
-      target: { value: 'b / 100' },
-    });
-    fireEvent.change(screen.getByLabelText('Label'), {
-      target: { value: 'weekly issues' },
-    });
-    fireEvent.change(screen.getByLabelText('Decimals'), {
-      target: { value: '1' },
-    });
-    fireEvent.change(screen.getByLabelText('Prefix'), {
-      target: { value: '~' },
-    });
-    fireEvent.change(screen.getByLabelText('Suffix'), {
-      target: { value: '*' },
-    });
-
-    fireEvent.click(screen.getByRole('button', { name: 'Save' }));
+    clickButton('Save');
     expect(mockedView.submit).toHaveBeenCalledTimes(1);
     expect(mockedView.submit.mock.calls[0][0]).toMatchSnapshot();
   });
 
   it('cancels edit', () => {
-    fireEvent.change(screen.getByLabelText('Variable'), {
-      target: { value: 'b' },
-    });
-
-    fireEvent.click(screen.getByRole('button', { name: 'Cancel' }));
+    changeLabelValue('Variable', 'b');
+    clickButton('Cancel');
     expect(mockedView.submit).toHaveBeenCalledTimes(1);
     expect(mockedView.submit).toHaveBeenCalledWith(formValues);
   });

@@ -1,5 +1,6 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 
+import { clickButton } from '../../../test/helpers';
 import Variables from './Variables';
 
 const INPUT_COUNT_PER_ROW = 2;
@@ -32,7 +33,7 @@ it('renders button', () => {
 });
 
 it('adds variable', () => {
-  fireEvent.click(screen.getByRole('button', { name: 'Add variable' }));
+  clickButton('Add variable');
   expect(screen.getAllByRole('textbox')).toHaveLength(INPUT_COUNT_PER_ROW);
   ['Variable', 'Function', 'JQL'].forEach((label) => {
     expect(screen.getByLabelText(label)).toBeInTheDocument();
@@ -43,11 +44,7 @@ it('adds variable', () => {
 
 it('adds variable', () => {
   const rows = 2;
-  Array(rows)
-    .fill(null)
-    .forEach(() => {
-      fireEvent.click(screen.getByRole('button', { name: 'Add variable' }));
-    });
+  [...Array(rows)].forEach(() => clickButton('Add variable'));
   expect(screen.getAllByRole('textbox')).toHaveLength(
     INPUT_COUNT_PER_ROW * rows,
   );
@@ -55,10 +52,10 @@ it('adds variable', () => {
 
 it('deletes variable', () => {
   // add
-  fireEvent.click(screen.getByRole('button', { name: 'Add variable' }));
+  clickButton('Add variable');
   expect(screen.getAllByRole('textbox')).toHaveLength(INPUT_COUNT_PER_ROW);
 
   // delete
-  fireEvent.click(screen.getByRole('button', { name: 'Delete variable' }));
+  clickButton('Delete variable');
   expect(screen.queryAllByRole('textbox')).toHaveLength(0);
 });
