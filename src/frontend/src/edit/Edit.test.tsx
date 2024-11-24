@@ -16,10 +16,6 @@ afterAll(() => {
   consoleErrorSpy.mockRestore();
 });
 
-afterEach(() => {
-  jest.clearAllMocks();
-});
-
 describe('without data', () => {
   beforeEach(async () => {
     mockedView.getContext.mockResolvedValueOnce({

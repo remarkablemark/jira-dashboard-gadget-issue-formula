@@ -19,8 +19,10 @@ jest.mock('@forge/bridge', () => ({
 
 jest.mock('../src/env');
 
-// reset store
 afterEach(() => {
+  jest.clearAllMocks();
+
+  // reset store
   const { result } = renderHook(() => useFormValuesStore());
   act(() => {
     result.current.setFormValues({} as FormValues);
