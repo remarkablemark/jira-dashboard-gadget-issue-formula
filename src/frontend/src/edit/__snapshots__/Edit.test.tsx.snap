@@ -1,6 +1,38 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`new gadget adds variable and formula 1`] = `
+exports[`with data updates variable and formula 1`] = `
+{
+  "decimal": [
+    "1",
+  ],
+  "formula": [
+    "b / 100",
+  ],
+  "function": [
+    {
+      "label": "COUNT",
+      "value": "COUNT",
+    },
+  ],
+  "jql": [
+    "created >= -7d",
+  ],
+  "label": [
+    "weekly issues",
+  ],
+  "prefix": [
+    "~",
+  ],
+  "suffix": [
+    "*",
+  ],
+  "variable": [
+    "b",
+  ],
+}
+`;
+
+exports[`without data adds variable and formula 1`] = `
 {
   "decimal": [
     "2",
