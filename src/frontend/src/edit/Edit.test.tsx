@@ -37,7 +37,7 @@ describe('without data', () => {
     expect(screen.getByRole('button', { name })).toBeInTheDocument();
   });
 
-  it('adds variable and formula', () => {
+  it('submits variable and formula', () => {
     clickButton('Add variable');
     [
       ['Variable', 'a'],
@@ -100,7 +100,7 @@ describe('with data', () => {
     });
   });
 
-  it('updates variable and formula', () => {
+  it('submits edited variable and formula', () => {
     [
       ['Variable', 'b'],
       ['JQL', 'created >= -7d'],
