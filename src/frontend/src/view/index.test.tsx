@@ -6,12 +6,24 @@ import View from '.';
 
 const mockedView = jest.mocked(view);
 
-it('renders loading icon', async () => {
-  mockedView.getContext.mockResolvedValueOnce({
-    extension: { gadgetConfiguration: undefined },
-  } as unknown as FullContext);
-  render(<View />);
-  await waitFor(() => {
-    expect(screen.getByLabelText('Loading')).toBeInTheDocument();
+describe('without data', () => {
+  beforeEach(() => {
+    mockedView.getContext.mockResolvedValueOnce({
+      extension: { gadgetConfiguration: undefined },
+    } as unknown as FullContext);
+  });
+
+  it('renders loading icon', async () => {
+    render(<View />);
+    await waitFor(() => {
+      expect(screen.getByLabelText('Loading')).toBeInTheDocument();
+    });
+  });
+
+  it('does not render heading', async () => {
+    render(<View />);
+    await waitFor(() => {
+      expect(screen.queryAllByRole('heading')).toHaveLength(0);
+    });
   });
 });
