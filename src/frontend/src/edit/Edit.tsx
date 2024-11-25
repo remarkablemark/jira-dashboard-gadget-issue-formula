@@ -17,6 +17,7 @@ export default function Edit() {
   const formValues = useFormValues();
 
   const handleSubmit = useCallback(() => {
+    /* istanbul ignore if */
     if (DEV) {
       log.info('submit:', formValues);
     }
@@ -24,6 +25,7 @@ export default function Edit() {
   }, [formValues]);
 
   const handleCancel = useCallback(() => {
+    /* istanbul ignore if */
     if (DEV) {
       log.info('cancel');
     }

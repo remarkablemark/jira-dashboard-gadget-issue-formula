@@ -27,6 +27,7 @@ export function useGadgetConfiguration(): Result {
       });
     });
 
+    /* istanbul ignore if */
     if (DEV) {
       log.info('formValues:', formValues);
     }
