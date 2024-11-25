@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 
 import View from './View';
 
-it('renders loading icon', () => {
+it('renders headings', () => {
   const label = 'label';
   const value = 'value';
   render(<View data={[{ label, value }]} />);
