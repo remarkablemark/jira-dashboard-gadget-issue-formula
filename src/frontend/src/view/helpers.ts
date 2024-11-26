@@ -1,8 +1,15 @@
 import { Parser } from 'expr-eval';
 
 import { log } from '../helpers';
-import { FormValues, Issue } from '../types';
+import type { FormValues, Issue } from '../types';
 
+/**
+ * Transforms form values and issues into labels and values.
+ *
+ * @param formValues - Form values.
+ * @param issues - Issues.
+ * @returns - Array of label and value.
+ */
 export function transform(formValues: FormValues, issues: Issue[]) {
   const variables = getVariables(formValues, issues);
 
@@ -28,6 +35,13 @@ export function transform(formValues: FormValues, issues: Issue[]) {
   });
 }
 
+/**
+ * Gets variables from form values and issues.
+ *
+ * @param formValues - Form values.
+ * @param issues - Issues.
+ * @returns - Variables.
+ */
 export function getVariables(formValues: FormValues, issues: Issue[]) {
   return formValues.variable.reduce(
     (accumulator: Record<string, number>, variable, index) => {
