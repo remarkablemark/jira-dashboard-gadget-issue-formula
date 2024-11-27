@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`requests jira when function value is "COUNT" 1`] = `
+[
+  "/rest/api/3/search",
+  {
+    "body": "{"jql":"test","maxResults":0}",
+    "headers": {
+      "Accept": "application/json",
+      "Content-Type": "application/json",
+    },
+    "method": "POST",
+  },
+]
+`;
+
+exports[`requests jira when function value is "SUM" 1`] = `
+[
+  "/rest/api/3/search",
+  {
+    "body": "{"jql":"test"}",
+    "headers": {
+      "Accept": "application/json",
+      "Content-Type": "application/json",
+    },
+    "method": "POST",
+  },
+]
+`;

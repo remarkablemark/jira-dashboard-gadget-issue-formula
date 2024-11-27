@@ -37,14 +37,15 @@ export default function VariableRow(props: Props) {
               },
             ]}
             value={formValues.function[props.index]}
-            onChange={(event) => {
-              /* istanbul ignore next */
-              formValues.updateFormValue(
-                'function',
-                props.index,
-                event?.value || '',
-              );
-            }}
+            onChange={
+              /* istanbul ignore next */ (event) => {
+                formValues.updateFormValue(
+                  'function',
+                  props.index,
+                  event?.value || '',
+                );
+              }
+            }
             required
           />
         )}

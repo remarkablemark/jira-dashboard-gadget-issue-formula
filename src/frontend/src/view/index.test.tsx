@@ -24,6 +24,7 @@ describe('without data', () => {
   it('does not render heading', async () => {
     render(<View />);
     await waitFor(() => {
+      expect(screen.queryAllByLabelText('Loading')).toHaveLength(0);
       expect(screen.queryAllByRole('heading')).toHaveLength(0);
     });
   });

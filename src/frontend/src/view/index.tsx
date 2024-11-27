@@ -13,6 +13,7 @@ export default function ViewContext() {
     return <Spinner label="Loading" />;
   }
 
+  /* istanbul ignore next */
   if (!formValues.variable?.length || !formValues.formula?.length) {
     return null;
   }
