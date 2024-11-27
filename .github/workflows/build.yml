@@ -21,6 +21,11 @@ jobs:
       - name: Run tests
         run: npm test
 
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v5
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+
       - name: Disable Forge telemetry
         run: npx forge settings set usage-analytics false
 
