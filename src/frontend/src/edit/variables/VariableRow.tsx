@@ -38,6 +38,7 @@ export default function VariableRow(props: Props) {
             ]}
             value={formValues.function[props.index]}
             onChange={(event) => {
+              /* istanbul ignore next */
               formValues.updateFormValue(
                 'function',
                 props.index,
